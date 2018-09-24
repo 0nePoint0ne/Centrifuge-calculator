@@ -9,10 +9,17 @@ def displayData(size, speed):
 	for i in range(size):
 		sizes.append(int(i))
 		force.append((speed*speed) * 1.118 * (10**-5) * i)
-	ts = pd.Series(sizes, force)
+	ts = pd.Series(force,sizes)
 
 	ts = ts.cumsum()
-
+	
+	for i in force:
+		print(i)
+	
+	plt.title('G force vs Radius')
+	plt.ylabel('G force (g)')
+	plt.xlabel('Radius (cm)')
+	
 	ts.plot()
 	plt.show()
 
